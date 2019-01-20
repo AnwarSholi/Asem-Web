@@ -6,20 +6,24 @@ body {
     font-size: 10px;
     margin: 0;
 }
-
+.clearfix {
+    clear: both;
+}
 /****** start nav ******/
 nav {
     position: fixed;
     left: 0;
     top: 0;
     z-index: 2;
-    background-color: rgba(0, 0, 0, 15%);
+    background-color: rgba(0, 0, 0, 30%);
     color: white;
     font-size: 1.5em;
     font-weight: bold;
     width:100%;
     box-shadow: 0.1em 0.1em 0.5em black;
     vertical-align: middle;
+    display: grid; 
+    grid-template-columns: 2fr 1fr;
 }
 nav ul{
     padding: 0;
@@ -27,24 +31,90 @@ nav ul{
     display: inline-block;
     vertical-align:top;
     width: 100%;
+    align-self: center;
+    padding: 0.5em 0;
+}
+nav .left-nav{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+nav .right-nav{
+    text-align: right;
+}
+nav .right-nav>li{
+    margin-left: 3%;
 }
 nav ul li {
     list-style-type: none;
     padding: 0;
     margin: 0;
     display: inline-block;
-    margin-right: 1%;
-    
+    margin-right: 2%;
+    align-self: center;
 }
 nav ul li a {
     display: inline-block;
     text-decoration: none;
-    color: white;
+    color: #39C3F2;
     font-size: 1.5em;
+    text-shadow:    0.1em 0.1em 1em black, 
+                    0.1em 0.1em 1em black, 
+                    0.1em 0.1em 1em black, 
+                    0.1em 0.1em 1em black,
+                    0.1em 0.1em 1em black;
+}
+nav ul li a:hover {
+    color: #008BD1;
+}
+nav ul li a span {
+    padding-left: 1em;
 }
 nav ul li img {
-    width: 4.8em;
-    height: 4.8em;
+    width: 3.8em;
+    height: 3.8em;
+
+    display: inline-block;
+}
+nav ul .menu {
+    position: relative;
+}
+
+nav ul .menu:hover .submenu {
+    display: block;
+    transition-duration: 1s;
+}
+nav ul .submenu {
+    position: absolute;
+    top: 2.5em;
+    left: 0;
+    background-color: rgba(0, 0, 0, 30%);
+    width: 10em;
+    text-align: center;
+     
+    display: none;
+    box-shadow: 0.1em 0.1em 0.5em black;
+}
+nav ul .submenu::before {
+    content: " ";
+    border-left: 0.6em solid transparent;
+    border-right: 0.6em solid transparent;
+    border-bottom: 0.6em solid black;
+    border-top: 0.6em solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    left: 2em;
+    top: -1.2em;
+}
+nav ul li .submenu li{
+    display: block;
+    padding: 0.5em 1em 0.5em 1em;
+    margin-right: 0;
+}
+nav ul li .submenu li:hover{
+    
+    background-color: rgba(0, 0, 0, 60%);
+    transition-duration: 1s;
 
 }
 /****** end nav ******/
@@ -57,5 +127,14 @@ header { /* Header Image with all properities */
     background-size: cover;
     min-height: 768px;
     position: relative;
+}
+header .overlay { /* pink overlay over the image */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 70%);
+
 }
 /****** end header ******/
